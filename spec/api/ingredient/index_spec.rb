@@ -5,7 +5,6 @@ RSpec.describe 'ingredient index', type: :request do
   before :each do
     create_list :ingredient, 5
     get '/api/ingredients'
-    @json = JSON.parse(response.body)
   end
 
   let(:json) { JSON.parse(response.body) }
