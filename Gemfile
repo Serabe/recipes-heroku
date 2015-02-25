@@ -12,6 +12,7 @@ gem 'pg'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.4.1'
+gem 'active_model_serializers', '~> 0.8.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +36,7 @@ group :development, :test do
 
   gem 'factory_girl_rails', '~> 4.5.0'
 
-  gem 'active_model_serializers', '~> 0.8.3'
+
+  gem "spring-commands-rspec"
 end
 
