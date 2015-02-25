@@ -1,4 +1,4 @@
-module Api
+module API
   class IngredientsController < ApplicationController
 
     def index
