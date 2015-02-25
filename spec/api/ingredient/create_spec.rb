@@ -53,5 +53,9 @@ RSpec.describe 'ingredient create', type: :request do
     it 'returns a null id' do
       expect(json['ingredient']['id']).to be_nil
     end
+
+    it 'returs an errors object' do
+      expect(json['ingredient']['errors']).not_to be_nil
+    end
   end
 end
