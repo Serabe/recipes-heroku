@@ -8,9 +8,11 @@ module API
     def create
       ing = Ingredient.new create_params
 
-      ing.save
-
-      render json: ing, serializer: ::ShowIngredientSerializer
+      if ing.save
+        render json: ing, serializer: ::ShowIngredientSerializer
+      else
+        render json: ing, serializer: ::ErrorIngredientSerializer, status: :unprocessable_entity
+      end
     end
 
     protected
