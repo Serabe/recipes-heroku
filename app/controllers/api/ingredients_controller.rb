@@ -6,18 +6,34 @@ module API
     end
 
     def create
-      ing = Ingredient.new create_params
+      ingredient = Ingredient.new create_params
 
-      if ing.save
-        render json: ing, serializer: ::ShowIngredientSerializer
+      if ingredient.save
+        render json: ingredient, serializer: ::ShowIngredientSerializer
       else
-        render json: ing, serializer: ::ErrorIngredientSerializer, status: :unprocessable_entity
+        render json: ingredient, serializer: ::ErrorIngredientSerializer, status: :unprocessable_entity
       end
+    end
+
+    def update
+      ingredient = Ingredient.find params[:id]
+
+      if ingredient.update update_params
+        render json: ingredient, serializer: ::ShowIngredientSerializer
+      else
+        render json: ingredient, serializer: ::ErrorIngredientSerializer, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotFound
+      head :not_found
     end
 
     protected
 
     def create_params
+      params.require(:ingredient).permit(:name)
+    end
+
+    def update_params
       params.require(:ingredient).permit(:name)
     end
   end
