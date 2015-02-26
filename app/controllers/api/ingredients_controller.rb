@@ -1,7 +1,7 @@
 module API
   class IngredientsController < ApplicationController
 
-    before_action :load_resource, only: [:create, :update]
+    before_action :load_resource, only: [:create, :update, :destroy]
 
     rescue_from ActiveRecord::RecordNotFound do |exception|
       head :not_found
@@ -20,6 +20,11 @@ module API
     def update
       @resource.update update_params
       render_resource
+    end
+
+    def destroy
+      @resource.destroy
+      head :no_content
     end
 
     protected
