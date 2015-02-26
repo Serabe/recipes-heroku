@@ -1,7 +1,7 @@
 module API
   class IngredientsController < ApplicationController
 
-    before_action :load_resource, only: [:create, :update, :destroy]
+    before_action :load_resource, only: [:show, :create, :update, :destroy]
 
     rescue_from ActiveRecord::RecordNotFound do |exception|
       head :not_found
@@ -10,6 +10,10 @@ module API
     def index
       render json: Ingredient.all,
              each_serializer: ::IndexIngredientSerializer
+    end
+
+    def show
+      render_resource
     end
 
     def create
