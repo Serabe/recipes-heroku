@@ -8,4 +8,12 @@ class Step < ActiveRecord::Base
             numericality: { only_integer: true,
                             greater_than_or_equal_to: 0}
 
+
+  def active_model_serializer
+    if self.valid?
+      ::ShowStepSerializer
+    else
+      ::ErrorStepSerializer
+    end
+  end
 end
