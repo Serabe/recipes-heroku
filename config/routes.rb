@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :ingredients
     resources :steps
+    resources :recipes
   end
 
   devise_for :users
