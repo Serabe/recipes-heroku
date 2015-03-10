@@ -8,6 +8,19 @@ RSpec.describe Recipe, type: :model do
     expect(recipe).to be_valid
   end
 
+  describe '#steps' do
+
+    it 'responds to steps' do
+      expect(recipe).to respond_to :steps
+    end
+
+    it 'returns the step ordered by position' do
+      recipe = create :recipe, steps_count: 5
+      steps = recipe.steps(true)
+      expect(steps).to be_sorted_by &:position
+    end
+  end
+
   describe '#name' do
 
     it 'responds to name' do

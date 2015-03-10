@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  has_many :steps, -> { order position: :asc }
+
   validates :name,
             presence: true,
             length: { minimum: 5 }
