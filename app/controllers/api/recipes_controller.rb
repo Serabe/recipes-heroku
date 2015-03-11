@@ -10,11 +10,11 @@ module API
 
     protected
     def create_params
-      params.require(:recipe).permit(:name, :description)
+      params.require(:recipe).permit(:name, :description, steps_attributes: [:position, :instruction])
     end
 
     def update_params
-      params.require(:recipe).permit(:name, :description)
+      params.require(:recipe).permit(:name, :description, steps: [:position, :instruction])
     end
   end
 end

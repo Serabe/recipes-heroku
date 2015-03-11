@@ -1,5 +1,9 @@
 class Recipe < ActiveRecord::Base
-  has_many :steps, -> { order position: :asc }
+  has_many :steps,
+           -> { order position: :asc },
+           dependent: :destroy
+
+  accepts_nested_attributes_for :steps, allow_destroy: true
 
   validates :name,
             presence: true,
