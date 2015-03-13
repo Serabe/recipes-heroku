@@ -11,7 +11,3 @@
 /log/*
 !/log/.keep
 /tmp
-
-# Ignore config files
-config/database.yml
-config/secrets.yml
