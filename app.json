@@ -1,0 +1,7 @@
+{
+    "name": "Recipes",
+    "description": "A backend API",
+    "respository": "https://github.com/Serabe/recipes-heroku",
+    "logo": "http://rubyonrails.org/images/rails.png",
+    "keywords": ["rails", "api"]
+}
